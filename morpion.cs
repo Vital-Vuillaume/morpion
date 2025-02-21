@@ -46,7 +46,7 @@ namespace ConsoleApp4
                             Console.WriteLine("Already taken");
                         }
                     }
-                    catch(Exception ex) 
+                    catch(Exception) 
                     {
                         Console.WriteLine("A number between 0 and 3");
                         validInput = false;
@@ -97,12 +97,12 @@ namespace ConsoleApp4
                 }
             }
             
-            if(nbZero >= board.Length)
-            {
-                Win("egal");
-            } else if (board[0, 2] == board[1, 1] && board[1, 1] == board[2, 0] && board[0, 2] != " 0 " || board[0, 0] == board[1, 1] && board[1, 1] == board[2, 2] && board[0, 0] != " 0 ")
+            if (board[0, 2] == board[1, 1] && board[1, 1] == board[2, 0] && board[0, 2] != " 0 " || board[0, 0] == board[1, 1] && board[1, 1] == board[2, 2] && board[0, 0] != " 0 ")
             {
                 Win(board[0, 2]);
+            } else if(nbZero >= board.Length)
+            {
+                Win("egal");
             }
         }
 
@@ -128,6 +128,8 @@ namespace ConsoleApp4
                 }
                 
                 Console.WriteLine(msg);
+
+                Console.ReadLine();
             }
             
             alreadyFinish = true;
